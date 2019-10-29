@@ -47,6 +47,11 @@ namespace Foundation
                     controller = "SaSettingsSave",
                     action = "Post"
                 });
+
+                routes.MapRoute(
+                    name: "Brilliance", 
+                    url: "brilliance/foundationcal/{action}/{*otherArgs}",
+                    defaults: new { controller = "FoundationCal", action = "Index" });
             }
             catch
             {
