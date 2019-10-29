@@ -24,9 +24,11 @@
         @Html.PropertyFor(x => x.CurrentContent.BottomContentArea)
     </div>
     <ul>
-    @foreach (var content in calService.GetContentByPublishDate(new GetContentByPublishDateRequest()))
-    {
-        <li>@content.Name - @content.IsPublished()</li>
-    }
+        content start
+        @foreach (var content in calService.GetContentByPublishDate(new GetContentByPublishDateRequest {Skip = 0, Take = 20, BeginDate = DateTime.Now.AddDays(-1), EndDate = DateTime.Now.AddDays(31)}))
+        {
+            <li>@content.Name - @content.IsPublished()</li>
+        }
+        content end
     </ul>
 </div>

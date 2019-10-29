@@ -31,7 +31,10 @@ namespace Foundation.Features.FoundationCal
                 search = search.Filter(p => p.StartPublish.After(request.BeginDate.Value) & p.StartPublish.Before(request.EndDate.Value));
             }
 
-            return search.GetContentResult();
+            return search
+                .Skip(request.Skip)
+                .Take(request.Take)
+                .GetContentResult();
         }
     }
 }
