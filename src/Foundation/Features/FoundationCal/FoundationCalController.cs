@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web.Mvc;
-using System.Web.Routing;
+﻿using System.Web.Mvc;
 
 namespace Foundation.Features.FoundationCal
 {
@@ -16,7 +11,9 @@ namespace Foundation.Features.FoundationCal
 
         public ActionResult Index()
         {
-            return View();
+            //return "Hello World";
+            //return View(new FoundationCalViewModel());
+            return View(new FoundationCalViewModel());
         }
     }
 }
