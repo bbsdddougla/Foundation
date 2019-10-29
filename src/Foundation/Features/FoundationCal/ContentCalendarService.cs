@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using EPiServer;
 using EPiServer.Core;
 using EPiServer.Find;
+using EPiServer.Find.Cms;
 using EPiServer.ServiceLocation;
 
 namespace Foundation.Features.FoundationCal
@@ -19,23 +20,18 @@ namespace Foundation.Features.FoundationCal
 
         public IEnumerable<IContent> GetContentByPublishDate(GetContentByPublishDateRequest request)
         {
-
-            if (request.BeginDate is null)
-            {
-                request.BeginDate = DateTime.Today;
-            }
-
-            if (request.EndDate is null)
-            {
-                request.EndDate = DateTime.Today.AddMonths(1);
-                request.EndDate = new DateTime(request.EndDate.Value.Year, request.EndDate.Value.Month, 1);
-            }
-
-
             var search = findClient.Search<PageData>();
-            search = search.Filter(p => p.StartPublish.After(request.BeginDate.Value));
-            search = search.Filter(p => p.StartPublish.Before(request.BeginDate.Value));
-            return search.GetResult();
+
+            if (request.BeginDate == null && request.EndDate == null)
+            {
+                search = search.Filter(p => !p.StartPublish.Exists());
+            }
+            else
+            {
+                search = search.Filter(p => p.StartPublish.After(request.BeginDate.Value) & p.StartPublish.Before(request.EndDate.Value));
+            }
+
+            return search.GetContentResult();
         }
     }
 }
