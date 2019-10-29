@@ -20,17 +20,22 @@ namespace Foundation.Features.FoundationCal
 
         public IEnumerable<IContent> GetContentByPublishDate(GetContentByPublishDateRequest request)
         {
+
+            if (request.BeginDate is null)
+            {
+                request.BeginDate = DateTime.Today;
+            }
+
+            if (request.EndDate is null)
+            {
+                request.EndDate = DateTime.Today.AddMonths(1);
+                request.EndDate = new DateTime(request.EndDate.Value.Year, request.EndDate.Value.Month, 1);
+            }
+
+
             var search = findClient.Search<PageData>();
-
-            if (request.BeginDate == null && request.EndDate == null)
-            {
-                search = search.Filter(p => !p.StartPublish.Exists());
-            }
-            else
-            {
-                search = search.Filter(p => p.StartPublish.After(request.BeginDate.Value) & p.StartPublish.Before(request.EndDate.Value));
-            }
-
+            search = search.Filter(p => p.StartPublish.After(request.BeginDate.Value));
+            search = search.Filter(p => p.StartPublish.Before(request.BeginDate.Value));
             return search.GetContentResult();
         }
     }
