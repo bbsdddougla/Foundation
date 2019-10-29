@@ -17,6 +17,9 @@ namespace Foundation.Features.FoundationCal
 
         public ActionResult Index(GetContentByPublishDateRequest request)
         {
+            request.Take = 20;
+            request.BeginDate = new DateTime(2019, 10, 1);
+            request.EndDate = new DateTime(2019, 10, 31);
             //return "Hello World";
             //return View(new FoundationCalViewModel());
             return View(new FoundationCalViewModel
