@@ -5,6 +5,6 @@ namespace Foundation.Features.FoundationCal
 {
     public interface IContentCalendarService
     {
-        IEnumerable<IContent> GetContentByPublishDate(GetContentByPublishDateRequest request);
+        IEnumerable<PageData> GetContentByPublishDate(GetContentByPublishDateRequest request);
     }
 }

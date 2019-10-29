@@ -18,7 +18,7 @@ namespace Foundation.Features.FoundationCal
             this.findClient = findClient;
         }
 
-        public IEnumerable<IContent> GetContentByPublishDate(GetContentByPublishDateRequest request)
+        public IEnumerable<PageData> GetContentByPublishDate(GetContentByPublishDateRequest request)
         {
             var search = findClient.Search<PageData>();
 
