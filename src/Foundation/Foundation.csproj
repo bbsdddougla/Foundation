@@ -855,6 +855,9 @@
     <Compile Include="Features\Checkout\ConfirmationMail\OrderConfirmationMailController.cs" />
     <Compile Include="Features\Events\CalendarEventBlock\CalendarEventBlockController.cs" />
     <Compile Include="Features\Events\CalendarEvent\CalendarEventController.cs" />
+    <Compile Include="Features\FoundationCal\FoundationCalController.cs" />
+    <Compile Include="Features\FoundationCal\FoundationCalMenuProvider.cs" />
+    <Compile Include="Features\FoundationCal\FoundationCalViewModel.cs" />
     <Compile Include="Features\Header\HeaderController.cs" />
     <Compile Include="Features\Locations\LocationItemPage\LocationItemPageController.cs" />
     <Compile Include="Features\Locations\LocationListPage\LocationListPageController.cs" />
@@ -1766,6 +1769,8 @@
     <Content Include="modules\_protected\Commerce\Commerce.zip" />
     <Content Include="modules\_protected\EPiServer.Commerce.UI.CustomerService\EPiServer.Commerce.UI.CustomerService.zip" />
     <Content Include="modules\_protected\EPiServer.Personalization\EPiServer.Personalization.zip" />
+    <Content Include="Features\FoundationCal\Index.cshtml" />
+    <Content Include="Features\FoundationCal\_layout.cshtml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
