@@ -856,7 +856,6 @@
     <Compile Include="Features\Events\CalendarEventBlock\CalendarEventBlockController.cs" />
     <Compile Include="Features\Events\CalendarEvent\CalendarEventController.cs" />
     <Compile Include="Features\FoundationCal\ContentCalendarService.cs" />
-    <Compile Include="Features\FoundationCal\ContentPublishViewModel.cs" />
     <Compile Include="Features\FoundationCal\FoundationCalController.cs" />
     <Compile Include="Features\FoundationCal\FoundationCalMenuProvider.cs" />
     <Compile Include="Features\FoundationCal\FoundationCalViewModel.cs" />
