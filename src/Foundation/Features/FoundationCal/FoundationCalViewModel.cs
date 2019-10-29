@@ -9,9 +9,9 @@ namespace Foundation.Features.FoundationCal
 
     public class CalendarContentItem
     {
-        public string Title { get; set; }
+        public string title { get; set; }
 
-        public DateTime? StartDate { get; set; }
+        public string start { get; set; }
 
         public DateTime? EndDate { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using EPiServer.Core;
 
@@ -28,9 +29,9 @@ namespace Foundation.Features.FoundationCal
         {
             return new CalendarContentItem
             {
-                StartDate = content.StartPublish,
+                start = content.StartPublish.Value.ToString("s"),
                 EndDate = content.StartPublish,
-                Title = content.Name
+                title = content.Name
             };
         }
     }
