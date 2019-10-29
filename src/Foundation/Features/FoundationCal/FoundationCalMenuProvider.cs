@@ -14,7 +14,7 @@ namespace Foundation.Features.FoundationCal
                 IsAvailable = (request) => PrincipalInfo.HasAdminAccess
             };
 
-            var profiles = new UrlMenuItem("Foundation Cal", "/global/brilliance/foundcationcal", "/brilliance/foundationcal/index")
+            var profiles = new UrlMenuItem("Foundation Cal", "/global/brilliance/foundcationcal", "/foundationcal/index")
             {
                 
                 IsAvailable = (request) => PrincipalInfo.HasAdminAccess,
