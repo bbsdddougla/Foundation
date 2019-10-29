@@ -1,4 +1,11 @@
-﻿@model ContentViewModel<Foundation.Demo.Models.DemoHomePage>
+﻿@using EPiServer.Cms.Shell
+@using EPiServer.ServiceLocation
+@using Foundation.Features.FoundationCal
+@model ContentViewModel<Foundation.Demo.Models.DemoHomePage>
+
+@{
+    var calService = ServiceLocator.Current.GetInstance<IContentCalendarService>();
+}
 
 <div class="home-page row">
     <div class="col-12">
@@ -16,4 +23,10 @@
     <div class="col-12">
         @Html.PropertyFor(x => x.CurrentContent.BottomContentArea)
     </div>
+    <ul>
+    @foreach (var content in calService.GetContentByPublishDate(new GetContentByPublishDateRequest()))
+    {
+        <li>@content.Name - @content.IsPublished()</li>
+    }
+    </ul>
 </div>
